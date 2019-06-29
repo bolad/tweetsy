@@ -21,7 +21,7 @@ module HomeHelper
 
   def greeting
     if current_user.present?
-      @greeting = "Welcome, John Doe!"
+      @greeting = "Welcome, #{current_user['info']['name'].split.first}!"
       # @link = dashboard_path
     else
       @greeting = 'Tweetsy'
