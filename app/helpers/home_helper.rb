@@ -15,14 +15,10 @@ module HomeHelper
     @current_user
   end
 
-  # def reset_session
-  #   session['userinfo'] = nil if session['userinfo'].present?
-  # end
-
   def greeting
     if current_user.present?
       @greeting = "Welcome, #{current_user['info']['name'].split.first}!"
-      # @link = dashboard_path
+      @link = dashboard_path
     else
       @greeting = 'Tweetsy'
       @link = root_path
@@ -33,7 +29,7 @@ module HomeHelper
     if current_user.present?
       link_to('Log Out', logout_path, class: 'nav-link')
     else
-      link_to('Log In', "/auth/twitter", class: 'nav-link')
+      link_to('Log In', '/auth/twitter', class: 'nav-link')
     end
   end
 end
