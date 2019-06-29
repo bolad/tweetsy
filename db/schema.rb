@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_064252) do
+ActiveRecord::Schema.define(version: 2019_06_29_085214) do
+
+  create_table "packs", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_packs_on_user_id"
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
@@ -21,6 +29,14 @@ ActiveRecord::Schema.define(version: 2019_06_29_064252) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
+  create_table "tweets", force: :cascade do |t|
+    t.string "message"
+    t.integer "packs_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["packs_id"], name: "index_tweets_on_packs_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
@@ -29,4 +45,6 @@ ActiveRecord::Schema.define(version: 2019_06_29_064252) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "packs", "users"
+  add_foreign_key "tweets", "packs", column: "packs_id"
 end

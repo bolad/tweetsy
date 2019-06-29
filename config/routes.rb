@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :packs
   root 'home#index'
 
   get 'auth/:provider/callback', to:'session#create'
