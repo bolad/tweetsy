@@ -2,7 +2,7 @@ class SessionController < ApplicationController
   def create
     session[:userinfo] = request.env['omniauth.auth']
     # user = User.from_omniauth(env["omniauth.auth"])
-    redirect_to  dashboard_path
+    redirect_to dashboard_path
   end
 
   def destroy
