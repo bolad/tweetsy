@@ -24,7 +24,7 @@ AllCops:
     - 'public/**/*'
     - 'node_modules/**/*'
     - 'app/views/**/*'
-  TargetRubyVersion: '2.4'
+  TargetRubyVersion: '2.6.3'
 
 Layout/MultilineMethodCallIndentation:
   Enabled: false
