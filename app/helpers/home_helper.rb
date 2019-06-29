@@ -32,4 +32,11 @@ module HomeHelper
       link_to('Log In', '/auth/twitter', class: 'nav-link')
     end
   end
+
+  def menu_items
+    if current_user.present?
+      link_to 'Packs', packs_path
+    else
+    end
+  end
 end

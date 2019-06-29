@@ -3,7 +3,7 @@ class PacksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @packs = Pack.all
+    @packs = User.find_by(uid: current_user['uid'].to_i).packs.all
   end
 
   def show
