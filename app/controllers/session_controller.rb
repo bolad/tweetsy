@@ -4,11 +4,12 @@ class SessionController < ApplicationController
 
     User.from_omniauth(session['userinfo'])
 
-    redirect_to dashboard_path
+    redirect_to packs_path
   end
 
   def destroy
     reset_session
+    redirect_to root_path
   end
 
   def failure

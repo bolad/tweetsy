@@ -29,7 +29,7 @@ class PacksController < ApplicationController
 
   def update
     if @pack.update(pack_params)
-      redirect_to @pack, notice: 'Pack was successfully updated.'
+      redirect_to packs_path, notice: 'Pack was successfully updated.'
     else
       render :edit
     end

@@ -18,10 +18,10 @@ module HomeHelper
   def greeting
     if current_user.present?
       @greeting = "Welcome, #{current_user['info']['name'].split.first}!"
-      @link = dashboard_path
+      @link = packs_path
     else
       @greeting = 'Tweetsy'
-      @link = root_path
+      # @link = '/welcome'
     end
   end
 
@@ -34,9 +34,6 @@ module HomeHelper
   end
 
   def menu_items
-    if current_user.present?
-      link_to 'Packs', packs_path
-    else
-    end
+    link_to 'Packs', packs_path if current_user.present?
   end
 end

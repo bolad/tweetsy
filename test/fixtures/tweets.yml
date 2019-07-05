@@ -2,8 +2,8 @@
 
 one:
   message: MyString
-  packs: one
+  pack: one
 
 two:
   message: MyString
-  packs: two
+  pack: two

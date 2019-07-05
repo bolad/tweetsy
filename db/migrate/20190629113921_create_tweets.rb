@@ -2,7 +2,7 @@ class CreateTweets < ActiveRecord::Migration[6.0]
   def change
     create_table :tweets do |t|
       t.string :message
-      t.references :packs, null: false, foreign_key: true
+      t.references :pack, null: false, foreign_key: true
 
       t.timestamps
     end

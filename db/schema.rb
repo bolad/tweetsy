@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_085214) do
+ActiveRecord::Schema.define(version: 2019_06_29_113921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "packs", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_packs_on_user_id"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2019_06_29_085214) do
 
   create_table "tweets", force: :cascade do |t|
     t.string "message"
-    t.integer "packs_id", null: false
+    t.bigint "pack_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["packs_id"], name: "index_tweets_on_packs_id"
+    t.index ["pack_id"], name: "index_tweets_on_pack_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,5 +49,5 @@ ActiveRecord::Schema.define(version: 2019_06_29_085214) do
   end
 
   add_foreign_key "packs", "users"
-  add_foreign_key "tweets", "packs", column: "packs_id"
+  add_foreign_key "tweets", "packs"
 end
