@@ -1,0 +1,3 @@
+:schedule:
+  TweetsWorker:
+    cron: '0 * * * * *'

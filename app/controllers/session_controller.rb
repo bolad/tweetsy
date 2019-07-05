@@ -4,6 +4,8 @@ class SessionController < ApplicationController
 
     User.from_omniauth(session['userinfo'])
 
+    TweetsWorker.perform_async
+
     redirect_to packs_path
   end
 
