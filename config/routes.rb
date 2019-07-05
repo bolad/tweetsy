@@ -4,12 +4,12 @@ Rails.application.routes.draw do
     resources :tweets
   end
 
-  root 'home#index'
+  root 'packs#index'
+
+  get 'login', to: 'home#index'
+   get 'dashboard', to: 'dashboard#index'
 
   get 'auth/:provider/callback', to:'session#create'
   get 'logout', to: 'session#destroy'
-
-  get 'dashboard' => 'dashboard#index'
-
   get 'auth/failure', to: 'session#failure'
 end

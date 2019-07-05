@@ -18,7 +18,6 @@ class TweetsController < ApplicationController
 
   def create
     @pack = Pack.find(params[:pack_id])
-    #@tweet = Tweet.new(tweet_params)
     @tweet = @pack.tweets.build(tweet_params)
 
     if @tweet.save

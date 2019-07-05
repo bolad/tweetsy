@@ -7,7 +7,7 @@ module HomeHelper
     if user_signed_in?
       @current_user = session['userinfo']
     else
-      redirect_to root_path
+      redirect_to login_path
     end
   end
 
