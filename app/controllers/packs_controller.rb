@@ -1,6 +1,6 @@
 class PacksController < ApplicationController
-  before_action :set_pack, only: %i[show edit update destroy]
   before_action :authenticate_user!
+  before_action :set_pack, only: %i[show edit update destroy]
 
   def index
     @packs = User.find_by(uid: current_user['uid'].to_i).packs.all
@@ -21,7 +21,7 @@ class PacksController < ApplicationController
     @pack.user_id = User.find_by(uid: current_user['uid'].to_i).id
 
     if @pack.save
-      redirect_to @pack, notice: 'Pack was successfully created.'
+      redirect_to packs_path, notice: 'Pack was successfully created.'
     else
       render :new
     end
