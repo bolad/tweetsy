@@ -3,7 +3,8 @@ class User < ApplicationRecord
 
   class << self
     def from_omniauth(auth)
-      where(auth.slice('provider', 'uid')).first || create_from_omniauth(auth)
+      # where(auth.slice('provider', 'uid')).first || create_from_omniauth(auth)
+      where(uid: auth['uid']) || create_from_omniauth(auth)
     end
 
     def create_from_omniauth(auth)
