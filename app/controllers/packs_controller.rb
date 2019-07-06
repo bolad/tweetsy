@@ -6,9 +6,6 @@ class PacksController < ApplicationController
     @packs = User.find_by(uid: current_user['uid'].to_i).packs.all
   end
 
-  def show
-  end
-
   def new
     @pack = Pack.new
   end
