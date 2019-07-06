@@ -1,9 +1,11 @@
 class PacksController < ApplicationController
   before_action :authenticate_user!
+
   before_action :set_pack, only: %i[show edit update destroy]
 
   def index
-    @packs = User.find_by(uid: current_user['uid'].to_i).packs.all
+    # @packs = User.find_by(uid: current_user['uid'].to_i).packs.all
+    @packs = Pack.all
   end
 
   def new
