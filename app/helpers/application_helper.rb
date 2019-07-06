@@ -29,7 +29,8 @@ module ApplicationHelper
     if current_user.present?
       link_to('Log Out', logout_path, class: 'nav-link')
     else
-      link_to('Log In', '/auth/twitter', class: 'nav-link')
+      # link_to('Log In', '/auth/twitter', class: 'nav-link')
+      link_to(image_tag('sign-in-with-twitter-gray.png'), '/auth/twitter', class: 'nav-link')
     end
   end
 
